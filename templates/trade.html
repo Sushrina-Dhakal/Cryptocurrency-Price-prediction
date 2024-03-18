@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Trading Assistant - Trade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='trade.jpg') }}"); /* Background image URL */
+            background-size: cover; /* Cover the entire body */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black; /* Set text color to black */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for better readability */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: black; /* Set text color to black */
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            color: black; /* Set text color to black */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        select, input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            width: 100%;
+            max-width: 300px;
+        }
+        input[type="submit"] {
+            padding: 15px 30px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trade Cryptocurrency</h1>
+        <form action="/trade" method="post">
+            <label for="symbol">Select Cryptocurrency:</label>
+            <select name="symbol" id="symbol">
+                <option value="BTCUSDT">Bitcoin</option>
+                <option value="ETHUSDT">Ethereum</option>
+                <option value="BCHUSDT">Bitcoin Cash</option>
+                <option value="LTCUSDT">Litecoin</option>
+                <option value="BNBUSDT">Binance Coin</option>
+            </select>
+            <label for="amount">Enter Amount:</label>
+            <input type="text" name="amount" id="amount">
+            <label for="side">Trade Type:</label>
+            <select name="side" id="side">
+                <option value="buy">Buy</option>
+                <option value="sell">Sell</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
